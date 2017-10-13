@@ -1,5 +1,6 @@
 require "rails"
 require "rails_erd"
+require "rails_erd/domain"
 require "active_model/naming"
 
 module RailsUpgrader
@@ -64,6 +65,7 @@ module RailsUpgrader
     end
 
     def preload_environment
+      require "#{Dir.pwd}/config/environment"
       Rails.application.eager_load!
 
       if Rails.application.respond_to?(:config) && Rails.application.config
