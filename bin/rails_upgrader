@@ -7,5 +7,4 @@ require "rails_upgrader"
 # require "pry"
 # Pry.start
 
-require "irb"
-IRB.start(__FILE__)
+RailsUpgrader::CLI.call
