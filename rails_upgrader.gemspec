@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Mauro Otonelli"]
   spec.email         = ["mauro@ombulabs.com"]
 
-  spec.summary       = %q{Upgrade your Rails 3 apps to Rails 4}
+  spec.summary       = %q{Upgrade your Rails 3 app to Rails 4}
   spec.description   = %q{Helps with the process of upgrading your Rails 3 app to Rails 4}
   spec.homepage      = "http://www.ombulabs.com"
   spec.license       = "MIT"
@@ -18,7 +18,9 @@ Gem::Specification.new do |spec|
     f.match(%r{^(test|spec|features)/})
   end
   spec.require_paths = ["lib"]
+  spec.executables   = ["rails_upgrader"]
 
+  spec.add_dependency "rails-erd", "~> 1.5.2"
   spec.add_development_dependency "bundler", "~> 1.15"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
