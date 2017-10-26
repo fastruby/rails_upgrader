@@ -37,24 +37,25 @@ module RailsUpgrader
     def upgrade_strong_params!
       domain.entities.each do |entity|
         if entity.model
-          result = RailsUpgrader::StrongParams.generate_for(entity)
+          strong_params = RailsUpgrader::StrongParams.generate_for(entity)
 
           param_key = ActiveModel::Naming.param_key(entity.model)
-          model_path = "app/models/#{param_key}.rb"
+          controller_path = "app/controllers/#{param_key}s_controller.rb"
 
-          unless File.file?(model_path)
+          unless File.file?(controller_path)
             puts "Skipping #{entity.name}"
             next
           end
 
-          model_content = File.read(model_path)
-          next if model_content.include?("def #{param_key}_params")
+          controller_content = File.read(controller_path)
+          next if controller_content.include?("def #{param_key}_params")
 
-          last_end = model_content.rindex("end")
-          model_content[last_end..last_end+3] = "\n#{result}end\n"
-
+          last_end = controller_content.rindex("end")
+          controller_content[last_end..last_end+3] = "\n#{strong_params}end\n"
           begin
-            File.open(model_path, 'wb') { |file| file.write(model_content) }
+            File.open(controller_path, 'wb') do |file|
+              file.write(controller_content)
+            end
           rescue => e
             puts e.message
             puts e.backtrace
