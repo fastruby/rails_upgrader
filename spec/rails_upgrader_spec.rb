@@ -31,19 +31,18 @@ RSpec.describe RailsUpgrader do
       expect(File.read(controller)).to include "class UsersController < ApplicationController"
       expect(File.read(model)).not_to include accessible_attributes
       expect(File.read(model)).to include "class User < ActiveRecord::Base"
-      binding.pry
     end
 
-    xit "migrates model with nested attributes" do
+    xit "migrates with nested attributes" do
       # future test case
     end
 
-    xit "writes out to file instead of upgrading files in place" do
-      # future test case
+    xit "writes to file instead of upgrading files in place" do
+      # future test case, move to RailsUpgrader::CLI
     end
 
-    xit "skips the controller if it's already upgraded" do
-      # future test case
+    xit "skips the controller if already upgraded" do
+      # future test case, move to RailsUpgrader::CLI
     end
   end
 end
