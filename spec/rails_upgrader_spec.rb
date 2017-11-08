@@ -28,7 +28,10 @@ RSpec.describe RailsUpgrader do
       accessible_attributes = "attr_accessible :first_name, :last_name, :project_id"
 
       expect(File.read(controller)).to include strong_parameters
+      expect(File.read(controller)).to include "class UsersController < ApplicationController"
       expect(File.read(model)).not_to include accessible_attributes
+      expect(File.read(model)).to include "class User < ActiveRecord::Base"
+      binding.pry
     end
 
     xit "migrates model with nested attributes" do
