@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Upgrade your Rails 3 app to Rails 4}
   spec.description   = %q{Helps with the process of upgrading your Rails 3 app to Rails 4}
-  spec.homepage      = "http://www.ombulabs.com"
+  spec.homepage      = "https://www.fastruby.io"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|

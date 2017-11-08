@@ -38,7 +38,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/ombulabs/rails_upgrader.
+Bug reports and pull requests are welcome on GitHub at https://github.com/fastruby/rails_upgrader.
 
 ## License
 
