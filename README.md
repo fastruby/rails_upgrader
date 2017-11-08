@@ -26,9 +26,9 @@ Or install it yourself as:
 
 Commands:
 
-  go: attempt to upgrade your models and controllers in place.
+- `go`: attempt to upgrade your models and controllers in place.
 
-  dry-run: write strong parameter migrations to `all_strong_params.rb`.
+- `dry-run`: write strong parameter migrations to `all_strong_params.rb`.
 
 ## Development
 
