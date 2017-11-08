@@ -3,4 +3,17 @@
 require "bundler/setup"
 require "rails_upgrader"
 
-RailsUpgrader::CLI.call
+case ARGV[0]
+when "go"
+  RailsUpgrader::CLI.call
+when "dry-run"
+  RailsUpgrader::CLI.new.send(:upgrade_strong_params)
+else
+  puts <<-EOF
+Usage: rails_upgrader COMMAND
+
+Commands:
+  go: attempt to upgrade your models and controllers in place.
+  dry-run: write strong parameter migrations to `all_strong_params.rb`.
+EOF
+end
