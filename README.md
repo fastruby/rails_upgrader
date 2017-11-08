@@ -1,15 +1,16 @@
-# RailsUpgrader
+# Rails Upgrader
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rails_upgrader`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Need help upgrading your Rails application to version 4? This gem helps you
+automate the migration to strong parameters.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'rails_upgrader'
+group :development do
+  gem 'rails_upgrader'
+end
 ```
 
 And then execute:
@@ -22,7 +23,11 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+`rails_upgrader COMMAND`
+
+Commands:
+  go: attempt to upgrade your models and controllers in place.
+  dry-run: write strong parameter migrations to `all_strong_params.rb`.
 
 ## Development
 
@@ -32,7 +37,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/rails_upgrader.
+Bug reports and pull requests are welcome on GitHub at https://github.com/ombulabs/rails_upgrader.
 
 ## License
 
