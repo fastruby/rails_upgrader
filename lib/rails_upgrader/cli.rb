@@ -48,6 +48,7 @@ module RailsUpgrader
 
         begin
           entity_to_upgrade.update_controller_content!
+          entity_to_upgrade.update_model_content!
         rescue => e
           puts e.message
           puts e.backtrace
