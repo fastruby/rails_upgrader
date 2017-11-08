@@ -30,5 +30,17 @@ RSpec.describe RailsUpgrader do
       expect(File.read(controller)).to include strong_parameters
       expect(File.read(model)).not_to include accessible_attributes
     end
+
+    xit "migrates model with nested attributes" do
+      # future test case
+    end
+
+    xit "writes out to file instead of upgrading files in place" do
+      # future test case
+    end
+
+    xit "skips the controller if it's already upgraded" do
+      # future test case
+    end
   end
 end
