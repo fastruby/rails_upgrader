@@ -1,7 +1,6 @@
 require "rails"
 require "rails_erd"
 require "rails_erd/domain"
-require "active_model/naming"
 
 module RailsUpgrader
   class CLI
