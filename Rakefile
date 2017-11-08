@@ -6,7 +6,7 @@ RSpec::Core::RakeTask.new(:spec)
 task default: :spec
 
 task :build do
-  sh "gem build oca-epak.gemspec"
+  sh "gem build rails_upgrader.gemspec"
 end
 
 task release: :build do
