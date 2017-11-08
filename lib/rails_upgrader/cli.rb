@@ -11,7 +11,6 @@ module RailsUpgrader
     end
 
     def initialize
-      puts "Preloading environment..."
       preload_environment
       puts "Preloading relationships..."
       @domain = RailsERD::Domain.generate
@@ -57,7 +56,16 @@ module RailsUpgrader
     end
 
     def preload_environment
-      require "#{Dir.pwd}/config/environment"
+      begin
+        require "#{Dir.pwd}/config/environment"
+      rescue LoadError => e
+        puts "Rails application not found! If you're on "\
+             "a Rails application, please open a Github issue: "\
+             "https://github.com/ombulabs/rails_upgrader/issues"
+        abort
+      end
+
+      puts "Preloading environment..."
       Rails.application.eager_load!
 
       if Rails.application.respond_to?(:config) && Rails.application.config
