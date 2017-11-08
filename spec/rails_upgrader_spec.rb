@@ -11,14 +11,24 @@ RSpec.describe RailsUpgrader do
     let(:controller) do
       File.join(dummy_path, "app", "controllers", "users_controller.rb")
     end
+    let(:env_variables) { "BUNDLE_GEMFILE=Gemfile RAILS_ENV=test" }
 
-    before { reset_controller_content }
-    after { reset_controller_content }
+    before { reset_dummy_files }
+    after { reset_dummy_files }
 
     it "migrates controller from using protected attributes to strong params" do
-      system("cd #{dummy_path} && BUNDLE_GEMFILE=Gemfile RAILS_ENV=test rails_upgrader")
+      system("cd #{dummy_path} && #{env_variables} rails_upgrader")
 
-      # expect()
+      strong_parameters = <<-END
+  def user_params
+    params.require(:user)
+          .permit(:first_name, :last_name, :project_id)
+  end
+      END
+      accessible_attributes = "attr_accessible :first_name, :last_name, :project_id"
+
+      expect(File.read(controller)).to include strong_parameters
+      expect(File.read(model)).not_to include accessible_attributes
     end
   end
 end
