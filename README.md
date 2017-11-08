@@ -1,7 +1,6 @@
 # Rails Upgrader
 
-Need help upgrading your Rails application to version 4? This gem helps you
-automate the migration to strong parameters.
+This gem helps you automate the migration to strong parameters.
 
 ## Installation
 
