@@ -13,6 +13,7 @@ RSpec.describe RailsUpgrader do
     end
 
     before { reset_controller_content }
+    after { reset_controller_content }
 
     it "migrates controller from using protected attributes to strong params" do
       system("cd #{dummy_path} && BUNDLE_GEMFILE=Gemfile RAILS_ENV=test rails_upgrader")
