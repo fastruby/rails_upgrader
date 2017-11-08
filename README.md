@@ -25,7 +25,9 @@ Or install it yourself as:
 `rails_upgrader COMMAND`
 
 Commands:
+
   go: attempt to upgrade your models and controllers in place.
+
   dry-run: write strong parameter migrations to `all_strong_params.rb`.
 
 ## Development
