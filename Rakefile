@@ -11,5 +11,5 @@ end
 
 task release: :build do
   sh "git push origin master"
-  sh "gem push rails_upgrader-#{RailsUpgrader::VERSION}.gem"
+  # sh "gem push rails_upgrader-#{RailsUpgrader::VERSION}.gem"
 end
