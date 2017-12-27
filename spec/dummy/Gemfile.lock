@@ -1,7 +1,7 @@
 PATH
   remote: ../..
   specs:
-    rails_upgrader (0.1.0)
+    rails_upgrader (0.2.1)
       rails (~> 3.2)
       rails-erd (~> 1.5)
 
@@ -83,7 +83,7 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
-    rake (12.2.1)
+    rake (12.2.0)
     rdoc (3.12.2)
       json (~> 1.4)
     ruby-graphviz (1.2.3)
@@ -107,7 +107,8 @@ DEPENDENCIES
   pry
   rails (= 3.2.22.5)
   rails_upgrader!
+  rake (= 12.2)
   sqlite3
 
 BUNDLED WITH
-   1.15.4
+   1.16.1
