@@ -24,12 +24,20 @@ module RailsUpgrader
 
     private
 
-    def upgrade_strong_params
+    def upgrade_strong_params(write_to_file)
       result = domain.entities.map do |entity|
         RailsUpgrader::StrongParams.new(entity).generate_method if entity.model
       end.join
 
-      File.open("all_strong_params.rb", "w") { |f| f.write(result) }
+      if write_to_file
+        filename = "all_strong_params.rb"
+        File.open(filename, "w") { |f| f.write(result) }
+        STDOUT.puts "See the strong params result at generated file: #{filename}"
+      else
+        STDOUT.puts "\n\n==== ALL STRONG PARAMS: ====="
+        STDOUT.puts result
+        STDOUT.puts "============================="
+      end
     end
 
     def upgrade_strong_params!
