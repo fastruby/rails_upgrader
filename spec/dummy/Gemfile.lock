@@ -107,7 +107,7 @@ DEPENDENCIES
   pry
   rails (= 3.2.22.5)
   rails_upgrader!
-  rake (= 12.2)
+  rake (~> 12.2)
   sqlite3
 
 BUNDLED WITH
