@@ -32,11 +32,11 @@ module RailsUpgrader
       if write_to_file
         filename = "all_strong_params.rb"
         File.open(filename, "w") { |f| f.write(result) }
-        STDOUT.puts "See the strong params result at generated file: #{filename}"
+        puts "See the strong params result at generated file: #{filename}"
       else
-        STDOUT.puts "\n\n==== ALL STRONG PARAMS: ====="
-        STDOUT.puts result
-        STDOUT.puts "============================="
+        puts "\n\n==== ALL STRONG PARAMS: ====="
+        puts result
+        puts "============================="
       end
     end
 
