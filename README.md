@@ -28,7 +28,9 @@ Commands:
 
 - `go`: attempt to upgrade your models and controllers in place.
 
-- `dry-run`: write strong parameter migrations to `all_strong_params.rb`.
+- `dry-run`: write strong parameter migrations in the terminal.
+
+- `dry-run --file`: write strong parameter migrations to `all_strong_params.rb` file.
 
 ## Development
 
