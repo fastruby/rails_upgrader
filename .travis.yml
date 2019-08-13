@@ -3,6 +3,6 @@ language: ruby
 rvm:
   - 2.3.3
 before_install:
-  - gem install bundler --pre
+  - gem install bundler --no-ri --no-rdoc
   - bundle install
   - GEMFILE_PATH=spec/dummy/Gemfile bundle install
