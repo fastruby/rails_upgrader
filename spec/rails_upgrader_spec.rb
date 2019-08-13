@@ -17,7 +17,7 @@ RSpec.describe RailsUpgrader do
     after { reset_dummy_files }
 
     it "migrates controller from using protected attributes to strong params" do
-      system("cd #{dummy_path} && #{env_variables} bundle && #{env_variables}  rails_upgrader go")
+      system("cd #{dummy_path} && #{env_variables}  rails_upgrader go")
 
       strong_parameters = <<-END
   def user_params
