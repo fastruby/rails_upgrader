@@ -3,7 +3,6 @@ language: ruby
 rvm:
   - 2.4.10
 before_install:
-  - gem uninstall bundler -I -x 
   - gem install bundler:1.17.3
   - echo bundle --version
   - bundle install
