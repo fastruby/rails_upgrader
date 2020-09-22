@@ -5,10 +5,11 @@ RSpec.describe RailsUpgrader do
     File.join(File.dirname(__FILE__), "dummy")
   end
 
-  let(:env_variables) { "BUNDLE_GEMFILE=Gemfile RAILS_ENV=test" }
+  let(:gemfile) { File.expand_path("../dummy/Gemfile", __FILE__) }
+  let(:env_variables) { "BUNDLE_GEMFILE=#{gemfile} RAILS_ENV=test" }
 
   let(:strong_parameters) do
-  <<-END
+    <<-END
   def user_params
     params.require(:user)
           .permit(:first_name, :last_name, :project_id)
@@ -28,7 +29,7 @@ RSpec.describe RailsUpgrader do
     after { reset_dummy_files }
 
     it "migrates controller from using protected attributes to strong params" do
-      system("cd #{dummy_path} && #{env_variables} bundle && #{env_variables}  rails_upgrader go")
+      system("cd #{dummy_path} && #{env_variables} bundle exec rails_upgrader go")
 
       accessible_attributes = "attr_accessible :first_name, :last_name, :project_id"
 
@@ -52,10 +53,10 @@ RSpec.describe RailsUpgrader do
   end
 
   describe "#dry-run" do
-    let(:strong_params_file){ File.join(dummy_path, "all_strong_params.rb") }
+    let(:strong_params_file) { File.join(dummy_path, "all_strong_params.rb") }
 
     let(:upgrade_command) do
-      "cd #{dummy_path} && #{env_variables} bundle && #{env_variables}  rails_upgrader dry-run"
+      "cd #{dummy_path} && #{env_variables} bundle exec rails_upgrader dry-run"
     end
 
     before do
@@ -63,17 +64,13 @@ RSpec.describe RailsUpgrader do
     end
 
     context "without extra params" do
-      before (:each) do
-        system(upgrade_command)
-      end
-
       it "do not save the params to a file" do
+        system(upgrade_command)
         expect { expect(strong_params_file).to_not be_an_existing_file }
       end
 
       it "output the result at console" do
-        pending "TODO: Find a way to test this"
-        expect { $stdout }.to output(strong_parameters).to_stdout
+        expect { system(upgrade_command) }.to output(/#{Regexp.quote(strong_parameters)}/).to_stdout_from_any_process
       end
     end
 
