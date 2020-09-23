@@ -1,5 +1,7 @@
 # Rails Upgrader
 
+[![Build Status](https://travis-ci.org/fastruby/rails_upgrader.svg?branch=master)](https://travis-ci.org/fastruby/rails_upgrader)
+
 This gem helps you automate the migration to strong parameters.
 
 ## Installation
