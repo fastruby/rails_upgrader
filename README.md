@@ -42,7 +42,17 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/fastruby/rails_upgrader.
+Bug reports and pull requests are welcome on GitHub at [https://github.com/fastruby/rails_upgrader](https://github.com/fastruby/rails_upgrader). This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+
+When Submitting a Pull Request:
+
+* If your PR closes any open GitHub issues, please include `Closes #XXXX` in your comment
+
+* Please include a summary of the change and which issue is fixed or which feature is introduced.
+
+* If changes to the behavior are made, clearly describe what changes.
+
+* If changes to the UI are made, please include screenshots of the before and after.
 
 ## License
 
