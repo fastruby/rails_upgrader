@@ -18,7 +18,7 @@ assignees: ''
 
 **Branch/Commit:**
 
-Inform what branch/commit of Skunk.fyi you are using.
+Inform what branch/commit of rails_upgrader you are using.
 
 **Expected behavior:**
 
