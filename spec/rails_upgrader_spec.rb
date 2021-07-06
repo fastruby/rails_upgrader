@@ -38,6 +38,31 @@ RSpec.describe RailsUpgrader do
       expect(File.read(model)).not_to include accessible_attributes
       expect(File.read(model)).to include "class User < ActiveRecord::Base"
     end
+# ==============================================================================================
+    it "replaces 'skip_before_filter' with  'skip_before_action' " do
+      system("cd #{dummy_path} && #{env_variables} bundle exec rails_upgrader go")
+      updated_content = 'skip_before_action'
+      expect(File.read(controller)).to include updated_content
+    end 
+
+    it "replaces 'skip_after_filter' with  'skip_after_action' " do
+      system("cd #{dummy_path} && #{env_variables} bundle exec rails_upgrader go")
+      updated_content = 'skip_after_action'
+      expect(File.read(controller)).to include updated_content
+    end 
+
+    it "replaces 'before_filter' with  'before_action' " do
+      system("cd #{dummy_path} && #{env_variables} bundle exec rails_upgrader go")
+      updated_content = 'skip_before_action'
+      expect(File.read(controller)).to include updated_content
+    end 
+
+    it "replaces 'after_filter' with  'after_action' " do
+      system("cd #{dummy_path} && #{env_variables} bundle exec rails_upgrader go")
+      updated_content = 'after_action'
+      expect(File.read(controller)).to include updated_content
+    end 
+# ==============================================================================================
 
     xit "migrates with nested attributes" do
       # future test case

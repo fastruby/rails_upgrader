@@ -9,6 +9,7 @@ when "go"
 when "dry-run"
   write_to_file = ARGV[1] == '--file'
   RailsUpgrader::CLI.new.send(:upgrade_strong_params, write_to_file)
+  RailsUpgrader::CLI.new.send(:upgrade_filters_to_actions, write_to_file)
 else
   puts <<-EOF
 Usage: rails_upgrader COMMAND
@@ -16,5 +17,6 @@ Usage: rails_upgrader COMMAND
 Commands:
   go: attempt to upgrade your models and controllers in place.
   dry-run: write strong parameter migrations to `all_strong_params.rb`.
+  dry-run: write filters_to_actions migrations to `filters_to_actions.rb`.
 EOF
 end

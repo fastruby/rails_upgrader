@@ -19,6 +19,7 @@ module RailsUpgrader
     def upgrade
       puts "Upgrading Rails..."
       upgrade_strong_params!
+      upgrade_filters_to_actions!
       puts "Rails is upgraded!"
     end
 
@@ -61,6 +62,24 @@ module RailsUpgrader
           next
         end
       end
+    end
+
+    def upgrade_filters_to_actions(write_to_file)
+      result = RailsUpgrader::FiltersToActions.new
+
+      if write_to_file
+        filename = "filters_to_actions.rb"
+        File.open(filename, "w") { |f| f.write(result.dry_run_file) }
+        puts "See the filters_to_actions result at generated file: #{filename}"
+      else
+        puts "\n\n==== FILTERS TO ACTIONS: ====="
+        puts result.dry_run_file
+        puts "============================="
+      end
+    end
+
+    def upgrade_filters_to_actions!
+      RailsUpgrader::FiltersToActions.new
     end
 
     def preload_environment
