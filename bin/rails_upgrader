@@ -9,6 +9,7 @@ when "go"
 when "dry-run"
   write_to_file = ARGV[1] == '--file'
   RailsUpgrader::CLI.new.send(:upgrade_strong_params, write_to_file)
+  RailsUpgrader::CLI.new.send(:upgrade_filter_methods, write_to_file)
 else
   puts <<-EOF
 Usage: rails_upgrader COMMAND

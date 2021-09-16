@@ -19,10 +19,45 @@ module RailsUpgrader
     def upgrade
       puts "Upgrading Rails..."
       upgrade_strong_params!
+      upgrade_filter_methods!
       puts "Rails is upgraded!"
     end
 
     private
+
+    def upgrade_filter_methods
+      result = domain.entities.map do |entity|
+        RailsUpgrader::StrongParams.new(entity).generate_method if entity.controller
+      end.join
+
+      if write_to_file
+        filename = "all_filter_methods.rb"
+        File.open(filename, "w") { |f| f.write(result) }
+        puts "See the strong params result at generated file: #{filename}"
+      else
+        puts "\n\n==== ALL FILTER METHODS: ====="
+        puts result
+        puts "============================="
+      end
+    end
+
+    def upgrade_filter_methods!
+      domain.entities.each do |entity|
+        if entity.controller
+          entity_to_upgrade = RailsUpgrader::FilterMethods.new(entity)
+
+          next if entity_to_upgrade.already_upgraded?
+
+          begin
+            entity_to_upgrade.update_controller_content!
+          rescue => e
+            puts e.message
+            puts e.backtrace
+            next
+          end
+        end
+      end
+    end
 
     def upgrade_strong_params(write_to_file)
       result = domain.entities.map do |entity|
