@@ -7,53 +7,32 @@ assignees: ''
 
 ---
 
-**IMPORTANT: please make sure you ask yourself all intro questions and fill all sections of the template.**
+<!--- Before creating a bug report, please, answer the following questions -->
+<!--- Did you check the documentation for answers? -->
+<!--- Did you make sure that this bug has not already been reported? -->
 
-**Before we start...:**
+## Expected Behavior
+<!--- Tell us what should happen -->
+<!--- For example: When I [do X], it should [produce Y] -->
 
-- [ ] I checked the documentation and found no answer
-- [ ] I checked to make sure that this issue has not already been filed
-- [ ] I'm reporting the issue to the correct repository (for multi-repository projects)
+## Actual Behavior
+<!--- Tell us what happens instead -->
+<!--- For example: When I [did X], it [produced Y] -->
 
+## Possible Fix
+<!--- Optionally suggest a fix or work around -->
 
-**Branch/Commit:**
+## To Reproduce
+<!--- Optionally provide a link to a live example -->
 
-Inform what branch/commit of rails_upgrader you are using.
+<!--- Otherwise, please provide a set of reproduction steps -->
+1.
+2.
+3.
+4.
 
-**Expected behavior:**
+## Additional Information
+<!--- Include any relevant details about your environment (branch, browser, OS) -->
+<!--- and the bug (screenshots, logs, etc) -->
 
-Please include a detailed description of the behavior you were expecting when you encountered this issue.
-
-**Actual behavior:**
-
-Please include a detailed description of the actual behavior of the application.
-
-**Steps to reproduce:**
-
-How do I achieve this behavior? Use the following format to provide a step-by-step guide:
-
-1. Step 1: ...
-2. Step 2: ...
-
-**Context and environment:**
-
-Provide any relevant information about your setup
-
-1. Version of the software the issue is being opened for.
-2. Operating System
-3. Operating System version
-4. Ruby version
-
-_Delete any information that is not relevant._
-
-If you are unable to reproduce the bug, add the **Non-Reproducible** tag and describe the steps you followed leading to the bug to the best of your recollection.
-
-**Screenshots and Videos**
-
-If the issue has an effect in the frontend, include any relevant screenshots and videos here.
-
-**Logs**
-
-Include relevant log snippets or files here.
-
-**I will abide by the [code of conduct] (CODE_OF_CONDUCT.md)**
+**I will abide by the [code of conduct](CODE_OF_CONDUCT.md)**
